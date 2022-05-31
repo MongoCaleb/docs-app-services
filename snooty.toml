@@ -1,5 +1,5 @@
 name = "atlas-app-services"
-title = "Atlas App Services"
+title = "MongoDB Realm App Services"
 
 intersphinx = [
   "https://www.mongodb.com/docs/manual/objects.inv",
@@ -30,6 +30,7 @@ toc_landing_pages = [
   "/schemas",
   "/rules",
   "/endpoints",
+  "/tutorials",
   # CLI
   "/cli",
   "/cli/realm-cli-accessList",

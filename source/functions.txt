@@ -35,6 +35,13 @@ working with data in {+atlas+} clusters. They also include helpful
 global utilities, support common Node.js built-in modules, and can
 import and use external packages from the npm registry.
 
+.. code-block:: javascript
+   :caption: A basic function that returns a greeting
+   
+   exports = function(name) {
+     return `Hello, ${name ?? "stranger"}!`
+   }
+
 Functions are Serverless
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,7 +77,7 @@ GraphQL custom resolvers. These services automatically call functions to
 handle specific events. For example, whenever a database trigger
 observes a change event it calls its associated function with the change
 event as an argument. In the trigger function, you can then access
-information from the change event and response appropriately.
+information from the change event and respond appropriately.
 
 .. seealso::
    
@@ -194,7 +201,7 @@ and called:
 Define a Function
 -----------------
 
-You can create and manage functions in your application from the Realm
+You can create and manage functions in your application from the {+service-short+}
 UI or by importing the function configuration and source code with
 {+cli+} or GitHub deployment.
 
@@ -214,7 +221,7 @@ Call a Function
 ---------------
 
 You can call a function from other functions, from a connected client
-application, or with Realm CLI.
+application, or with {+cli+}.
 
 The examples in this section demonstrate calling a simple function named
 ``sum`` that takes two arguments, adds them, and returns the result:
@@ -295,7 +302,7 @@ expression evaluates to ``false``.
      }
    }
 
-Call from Realm SDKs
+Call from {+client-sdks+}
 ~~~~~~~~~~~~~~~~~~~~
 
 .. include:: /includes/important-sanitize-client-data-in-functions.rst

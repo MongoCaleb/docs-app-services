@@ -52,6 +52,9 @@ of a template app.
 .. button:: Sign-up to Deploy a Template App
    :uri: https://www.mongodb.com/realm/register?tck=docs_CTA_realm_template_apps
 
+.. video:: https://fast.wistia.net/embed/iframe/g5ds6kltbb
+
+
 .. _app-services-get-started-tutorials:
 
 Tutorials

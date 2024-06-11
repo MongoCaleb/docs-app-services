@@ -1,8 +1,9 @@
 .. _data-api-endpoints:
+.. _generated-endpoints:
 
-==================
-Data API Endpoints
-==================
+===================
+Generated Endpoints
+===================
 
 .. default-domain:: mongodb
 
@@ -12,10 +13,10 @@ Data API Endpoints
    :depth: 2
    :class: singlecol
 
-The Data API lets you securely read and write data using standard HTTPS
-requests. The API includes automatically generated endpoints that each
-represent a MongoDB operation. You can use the endpoints to create,
-read, update, delete, and aggregate documents in a MongoDB data source.
+Generated endpoints let you securely read and write data using standard HTTPS
+requests. The generated endpoints are pre-defined endpoints that represent 
+MongoDB operations. You can use them to create, read, update, delete, and 
+aggregate documents in a MongoDB data source.
 
 For example, this :mdn:`POST <Web/HTTP/Methods/POST>` request stores a
 document in a linked cluster by calling the ``insertOne`` endpoint:
@@ -31,26 +32,26 @@ document in a linked cluster by calling the ``insertOne`` endpoint:
       { "insertedId": "5f1a785e1536b6e6992fd588" }
 
 For a detailed API reference of all available endpoints, see the
-:ref:`Data API OpenAPI Reference <data-api-v1>`.
+:ref:`Generated Endpoints OpenAPI Reference <data-api-v1>`.
 
-When to Use the Data API
-------------------------
+When to Use the Generated Endpoints
+-----------------------------------
 
-You can use the Data API to integrate with any app or service that
+You can use the generated endpoints to integrate with any app or service that
 supports HTTPS requests. For example, you might:
 
-- call the API from a serverless edge function
+- Call the API from a serverless edge function
 
-- query Atlas from a mobile application
+- Query Atlas from a mobile application
 
-- access test data and log events in a CI/CD workflow
+- Access test data and log events in a CI/CD workflow
 
-- integrate Atlas into a federated API gateway
+- Integrate Atlas into a federated API gateway
 
-- connect from an environment not currently supported via a MongoDB
+- Connect from an environment not currently supported via a MongoDB
   Driver or Realm SDK
 
-An operation called through an API endpoint will likely take longer than
+An operation called through a generated endpoint will likely take longer than
 the corresponding MongoDB operation called through a connected MongoDB
 Driver. For high-load use-cases and latency sensitive applications, we
 recommend connecting directly to your database with a MongoDB driver. To
@@ -61,10 +62,10 @@ learn more, visit the :driver:`MongoDB Drivers </>` documentation.
 Base URL
 --------
 
-The Data API endpoints in an app share a base URL. The URL uses your App
-ID to uniquely point to your app and specifies which version of the Data
-API to call. Each endpoint has a unique URL formed by appending the
-endpoint's route to your app's base URL.
+All generated endpoints within an Atlas App Services app share a base URL. The 
+URL uses your App ID to uniquely point to your app and specifies which version of 
+the generated endpoints to call. Each endpoint has a unique URL formed by appending 
+the endpoint's route to your app's base URL.
 
 Globally deployed apps use the following format:
 
@@ -81,13 +82,14 @@ Endpoints in a locally deployed app use a base URL specific to the app's
 
    https://<Region>.<Cloud>.data.mongodb-api.com/app/<App ID>/endpoint/data/<API Version>
 
+.. TODO: https://jira.mongodb.org/browse/DOCSP-40394
 .. _data-api-setup:
 
-Set Up the Data API
--------------------
+Set Up the Generated Endpoints
+------------------------------
 
-You can configure the Data API for your app from the App Services UI or by
-deploying configuration files with {+cli+}:
+You can configure the generated endpoints for your app from the App Services UI 
+or by deploying configuration files with {+cli+}:
 
 .. tabs-realm-admin-interfaces::
 
@@ -95,7 +97,7 @@ deploying configuration files with {+cli+}:
       :tabid: ui
 
       1. Click :guilabel:`HTTPS Endpoints` in the left navigation menu and then
-         select the :guilabel:`Data API` tab.
+         select the :guilabel:`Generated Endpoints` tab.
       
       2. Enable the Data API for your app. This generates endpoints that
          can access any MongoDB data source linked to your app.
@@ -145,7 +147,7 @@ deploying configuration files with {+cli+}:
 Authentication
 ~~~~~~~~~~~~~~
 
-Data API endpoints run in the context of a specific user, which allows
+Generated endpoints run in the context of a specific user, which allows
 your app to enforce rules and validate document schemas for each
 request.
 
@@ -383,10 +385,10 @@ The following versions are currently supported:
 - ``beta``
 - ``v1``
 
-Call a Data API Endpoint
-------------------------
+Call a Generated Endpoint
+-------------------------
 
-You can call a Data API endpoint from any standard HTTP client. Each
+You can call a generated endpoint from any standard HTTP client. Each
 request can include configuration headers and arguments in the request
 body.
 
@@ -395,7 +397,7 @@ HTTP/1.1 or greater is required when making requests.
 Choose an API Version
 ~~~~~~~~~~~~~~~~~~~~~
 
-Data API requests specify which version of the API to use in the request
+Generated endpoint requests specify which version of the API to use in the request
 URL. A request can specify any version that is enabled for your app.
 
 .. code-block:: bash
@@ -405,14 +407,14 @@ URL. A request can specify any version that is enabled for your app.
 Specify the Request Data Format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Data API requests must include a ``Content-Type`` header to specify the
+Generated endpoint requests must include a ``Content-Type`` header to specify the
 :ref:`data format <data-api-data-formats>` used in the request body.
 
 - Use ``Content-Type: application/json`` to represent standard JSON types in a
-  Data API request body.
+  generated endpoint request body.
 
 - Use ``Content-Type: application/ejson`` to represent standard JSON
-  types *and* additional EJSON types in a Data API request body.
+  types *and* additional EJSON types in a generated endpoint request body.
 
 .. tabs::
    
@@ -481,7 +483,7 @@ Choose a Response Data Format
 A request can include an ``Accept`` header to request a specific data
 format for the response body, either JSON or EJSON. If a request does
 not include a valid ``Accept`` header, the response uses the data format
-specified in your :ref:`Data API configuration <data-api-response-type>`.
+specified in your :ref:`Response configuration <data-api-response-type>`.
 
 .. tabs::
    
@@ -600,7 +602,7 @@ the request headers.
 Authorize the Request
 ~~~~~~~~~~~~~~~~~~~~~
 
-Depending on your Data API :ref:`authorization configuration
+Depending on your generated endpoint :ref:`authorization configuration
 <data-api-authorization>`, your requests may need to include additional
 authorization information.
 

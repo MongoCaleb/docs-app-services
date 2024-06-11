@@ -1,6 +1,6 @@
-=================
-Data API Examples
-=================
+===========================
+Generated Endpoint Examples
+===========================
 
 .. contents:: On this page
    :local:
@@ -8,14 +8,14 @@ Data API Examples
    :depth: 2
    :class: singlecol
 
-The following examples demonstrate how to send requests to the Atlas
-Data API.
+The following examples demonstrate how to send requests to the 
+generated endpoints.
 
 Create, Read, Update, and Delete (CRUD) Operations
 --------------------------------------------------
 
 The following examples demonstrate how to perform CRUD operations using
-the Atlas Data API.
+the generated endpoints.
 
 .. _data-api-findOne:
 
@@ -90,7 +90,7 @@ Run an Aggregation Pipeline
 Specify BSON Types in Requests
 ------------------------------
 
-Data API requests can specify BSON types that don't exist in JSON by
+Endpoint requests can specify BSON types that don't exist in JSON by
 instead using the EJSON :ref:`data format <data-api-data-formats>` in
 the request body. You can use EJSON to match BSON types in query filters
 or write BSON types in insert and update operations.
@@ -305,7 +305,7 @@ You can query a range of dates with ``$gt``, ``$gte``, ``$lt``, and
 Data Access Permissions
 -----------------------
 
-You can secure Data API requests using your app's built-in role-based
+You can secure generated endpoint requests using your app's built-in role-based
 permissions. The examples in this section demonstrate how to set up
 common permissions schemes. You can mix and match these and more complex
 schemes to meet your API's needs. For more examples and information on

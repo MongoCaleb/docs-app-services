@@ -18,7 +18,7 @@ What are the Atlas Application Services?
    Tutorials </tutorials>
    Device Sync </sync>
    Edge Server </edge-server>
-   Data API </data-api>
+   Generated Endpoints </data-api>
    Functions </functions>
    Triggers </triggers>
    Develop & Deploy Apps </apps>
@@ -94,18 +94,18 @@ run virtually any app or backend service on top of Atlas.
       .. image:: /images/plp/realm-sync.png
          :alt: Device Sync Illustration
 
-   .. tab:: Access Data With a REST API
+   .. tab:: Access Data With REST APIs
       :tabid: data-api
 
       .. procedure::
 
-         .. step:: Enable the Data API CRUD & Aggregation Endpoints
+         .. step:: Enable the Generated Endpoints for CRUD & Aggregation Calls
 
-            The MongoDB Atlas Data API lets you read and write data in
-            Atlas using HTTPS requests. Once enabled, you can use a
-            built-in endpoint to work with data.
+            The MongoDB Atlas generated endpoints let you read and write data in
+            Atlas using HTTPS requests. Once enabled, you can use the 
+            built-in endpoints to work with data.
 
-            See :ref:`Data API Endpoints <data-api-endpoints>`.
+            See :ref:`Generated Endpoints <generated-endpoints>`.
          
          .. step:: Define Custom Endpoints
 
@@ -124,7 +124,7 @@ run virtually any app or backend service on top of Atlas.
             
             For details, see :ref:`Data API Authentication <data-api-authentication>`.
 
-         .. step:: Send a Data API Request
+         .. step:: Send a Request
 
             Send requests from any server-side environment that supports
             HTTPS.

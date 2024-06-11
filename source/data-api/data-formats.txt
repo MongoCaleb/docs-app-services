@@ -16,11 +16,11 @@ object in structure but supports additional data types and uses a binary
 encoding. BSON is efficient for computers but is not human readable,
 so you can't work with it directly.
 
-Instead, the Data API uses two formats to represent data in requests and
+Instead, the generated endpoints use two formats to represent data in requests and
 responses: JSON and EJSON.
 
-You define a single default return type for all generated Data API
-endpoints and individually for each custom endpoint. Incoming requests
+You define a single default return type for all generated endpoints and 
+individually for each custom endpoint. Incoming requests
 can also specify a preferred data format that overrides the default
 using an ``Accept`` header.
 
@@ -55,8 +55,8 @@ using an ``Accept`` header.
                 "Date": "2022-01-12T02:33:23.067Z"
              }
 
-You define a single default return type for all generated Data API
-endpoints and individually for each custom endpoint. Incoming requests
+You define a single default return type for all generated endpoints and 
+individually for each custom endpoint. Incoming requests
 can also specify a preferred data format that overrides the default
 using an ``Accept`` header.
 
@@ -101,7 +101,7 @@ Canonical EJSON.
 BSON Types
 ----------
 
-This sections lists the BSON types that the Data API supports and shows
+This sections lists the BSON types that the generated endpoints support and shows
 how each type is represented in JSON and EJSON format.
 
 Array

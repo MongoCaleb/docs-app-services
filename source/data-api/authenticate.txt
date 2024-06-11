@@ -1,8 +1,8 @@
 .. _data-api-authenticate-requests:
 
-==============================
-Authenticate Data API Requests
-==============================
+=====================================
+Authenticate HTTPS Endpoints Requests
+=====================================
 
 .. contents:: On this page
    :local:
@@ -13,7 +13,7 @@ Authenticate Data API Requests
 Overview
 --------
 
-Data API endpoints generally require that incoming requests include
+Generated endpoints require that incoming requests include
 authentication information for the user calling the endpoint. This lets
 the endpoint enforce rules and validate document schemas for each
 request.

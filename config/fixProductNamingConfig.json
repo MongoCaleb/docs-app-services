@@ -48,8 +48,8 @@
     },
     {
       "search": "(Atlas )?App Services Data API",
-      "first": "Atlas Data API",
-      "subsequent": "Data API"
+      "first": "Atlas HTTPS Endpoints",
+      "subsequent": "HTTPS Endpoints"
     },
     {
       "search": "(Atlas )?App Services Schema",

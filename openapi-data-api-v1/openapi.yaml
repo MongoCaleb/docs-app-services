@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: v1
-  title: MongoDB Atlas Data API
+  title: MongoDB Atlas HTTPS Endpoints API
   description: >
     A fully-managed API to read, write, and aggregate data in MongoDB
 
@@ -47,9 +47,7 @@ info:
     token for an authenticated session.
 
 
-    To learn more, see [Authenticate Data API
-
-    Requests](https://www.mongodb.com/docs/atlas/app-services/data-api/authenticate/).
+    To learn more, see [Authenticate Endpoint Requests](https://www.mongodb.com/docs/atlas/app-services/data-api/authenticate/).
 security:
   - AccessToken: []
   - Email: []

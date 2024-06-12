@@ -36,7 +36,7 @@ in an application in these scenarios:
 - You are using the Realm Web SDK, which does not support Realm Database or Device Sync.
 
 As an alternative to MongoDB Data Access in **client-side** scenarios,
-you can use the :ref:`Atlas Data API <data-api>`.
+you can use the :ref:`HTTPS Endpoints <data-api>`.
 
 You can also use these APIs without a Realm SDK for your client app's programming
 language as long as the language has a HTTPS client.
@@ -51,7 +51,7 @@ you can use the following:
   more performant and flexible than connecting through App Services.
   If you would like to apply App Services Rules
   to driver operations, you can use the :ref:`App Services Wire Protocol <wire-protocol>`.
-- Atlas Data API
+- Atlas HTTPS Endpoints API
 
 Set Up
 ------

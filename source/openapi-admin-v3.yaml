@@ -351,7 +351,7 @@ paths:
             endpoint returns by default. The `atlas`, `data-api`, and `device-sync`
             product types represent special apps for
             [Atlas Triggers](https://docs.mongodb.com/atlas/triggers),
-            [Atlas Data API](https://docs.mongodb.com/atlas/api/data-api/),
+            [Atlas HTTPS Endpoints](https://docs.mongodb.com/atlas/api/data-api/),
             and [Atlas Device Sync](https://www.mongodb.com/docs/atlas/app-services/sync/)
             that you can access through the Atlas UI.
 
@@ -399,7 +399,7 @@ paths:
             The `atlas`, `data-api`, and `device-sync`
             product types represent special apps for
             [Atlas Triggers](https://docs.mongodb.com/atlas/triggers),
-            [Atlas Data API](https://docs.mongodb.com/atlas/api/data-api/),
+            [Atlas HTTPS Endpoints API](https://docs.mongodb.com/atlas/api/data-api/),
             and [Atlas Device Sync](https://www.mongodb.com/docs/atlas/app-services/sync/)
             that you can access through the Atlas UI.
       requestBody:
@@ -6218,7 +6218,7 @@ components:
             $ref: "#/components/schemas/DataApiVersion"
         return_type:
           $ref: "#/components/schemas/EndpointDataFormat"
-          description: The default [data format](https://mongodb.com/docs/atlas/app-services/data-api/#data-formats) returned by Data API endpoints.
+          description: The default [data format](https://mongodb.com/docs/atlas/app-services/data-api/#data-formats) returned by generated endpoints.
         create_user_on_auth:
           type: boolean
         run_as_user_id:
@@ -9467,7 +9467,7 @@ tags:
   - name: data-api
     x-displayName: Data API
     description: |-
-      Manage your app's generated [Data API endpoints](https://www.mongodb.com/docs/atlas/app-services/data-api/generated-endpoints/).
+      Manage your app's generated [Data generated endpoints](https://www.mongodb.com/docs/atlas/app-services/data-api/generated-endpoints/).
 
       ## Construct a Data API Base URL
 

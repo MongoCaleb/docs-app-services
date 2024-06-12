@@ -220,7 +220,7 @@ Authorization
 
 You can require authenticated users to provide additional authorization
 information in each request. You define the authorization scheme for
-all generated Data API endpoints in your Data API configuration.
+all generated endpoints in your Data API configuration.
 
 Endpoints natively support a set of built-in authorization schemes that
 use a secret string to prove that the request is authorized. You can
@@ -393,6 +393,12 @@ request can include configuration headers and arguments in the request
 body.
 
 HTTP/1.1 or greater is required when making requests.
+
+.. note::
+
+   For detailed examples of all available endpoints, see the 
+   :ref:`Generated Endpoints OpenAPI Reference <data-api-v1>`.
+
 
 Choose an API Version
 ~~~~~~~~~~~~~~~~~~~~~

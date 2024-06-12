@@ -569,7 +569,7 @@ preferred language and platform:
 API Services
 ~~~~~~~~~~~~
 
-You can authenticate Data API requests using the Custom JWT
+You can authenticate endpoint requests using the Custom JWT
 provider. You can either require users to create accounts before using a 
 service, or configure your API endpoints to automatically create a new
 user account if the request contains a valid JWT that does not match an
@@ -580,5 +580,5 @@ existing user. There are two approaches to using JWTs with your service APIs:
 - start a user session with the JWT and include the session access token
   as an ``Authorization`` header bearer token.
 
-For more information, see :ref:`Authenticate Data API Requests
+For more information, see :ref:`Authenticate Endpoint Requests
 <data-api-authenticate-requests>`.

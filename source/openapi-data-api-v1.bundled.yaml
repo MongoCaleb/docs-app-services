@@ -28,7 +28,7 @@ info:
     credentials directly in every request or provide a reusable access
     token for an authenticated session.
 
-    To learn more, see [Authenticate Data API
+    To learn more, see [Authenticate Endpoint
     Requests](https://www.mongodb.com/docs/atlas/app-services/data-api/authenticate/).
 servers:
   - description: Global App

@@ -1,6 +1,6 @@
-==================
-BSON and JSON Data
-==================
+=========================
+Using BSON and EJSON Data
+=========================
 
 .. contents:: On this page
    :local:

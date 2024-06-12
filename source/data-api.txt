@@ -1,8 +1,8 @@
 .. _data-api:
 
-==============
-Atlas Data API
-==============
+====================
+Atlas HTTP Endpoints
+====================
 
 .. facet::
    :name: programming_language
@@ -20,12 +20,12 @@ Atlas Data API
    :titlesonly:
    :hidden:
    
-   Data API Endpoints </data-api/generated-endpoints>
+   Generated Endpoints </data-api/generated-endpoints>
    Custom HTTPS Endpoints </data-api/custom-endpoints>
-   Authenticate Data API Requests </data-api/authenticate>
-   Data API Examples </data-api/examples>
+   Authenticate Endpoint Requests </data-api/authenticate>
+   Using BSON and EJSON Data </data-api/examples>
    Data Formats </data-api/data-formats>
-   Data API OpenAPI Reference </data-api/openapi>
+   Generated Endpoints Reference </data-api/openapi>
 
 .. contents:: On this page
    :depth: 2
@@ -65,13 +65,13 @@ Endpoints
 
 The Data API supports two types of endpoints:
 
-- **Data API Endpoints** are automatically generated endpoints that each
-  represent a MongoDB operation. You can use the endpoints to create,
+- **Generated Endpoints** are automatically-generated templates that represent 
+  MongoDB operations. You can use these endpoints to create,
   read, update, delete, and aggregate documents in a MongoDB data
   source.
 
   To learn more, including how to set up and call endpoints, see
-  :ref:`Data API Endpoints <data-api-endpoints>`.
+  :ref:`Generated Endpoints <data-api-endpoints>`.
 
 - **Custom Endpoints** are app-specific API routes handled by Atlas
   Functions that you write. You can use custom endpoints to define
@@ -85,24 +85,24 @@ The Data API supports two types of endpoints:
 How the Data API Works
 ----------------------
 
-Data API requests may resemble traditional database operations, like
-``find`` or ``insertOne``, but the Data API is not a direct connection
-to your database. Instead, the Data API adds additional authentication,
+Requests to generated endpoints may resemble traditional database operations, like
+``find`` or ``insertOne``, but the generated endpoints are not a direct connection
+to your database. Instead, the generated endpoints add additional authentication,
 authorization, and correctness checks to ensure that your data is only
 accessed or modified in the ways you allow. This allows you to safely
 access data in Atlas from potentially vulnerable clients like web apps.
 
-For each incoming request, the Data API:
+For each incoming request, the generated endpoints:
 
-1. **Authenticates the calling user.** This might involve validating an
+1. **Authenticate the calling user.** This might involve validating an
    access token, logging in with header credentials, or directly
    assigning a specific runtime user based on your configuration.
 
-2. **Authorizes the request.** This ensures that the user sent a
+2. **Authorize the request.** This ensures that the user sent a
    well-formed request and has permission to perform the requested
    operation based on your endpoint authorization scheme.
 
-3. **Runs the requested operation.** This might involve reading or
+3. **Run the requested operation.** This might involve reading or
    writing data in Atlas with a generated endpoint or invoke a custom
    function that you wrote.
 
@@ -112,18 +112,18 @@ For each incoming request, the Data API:
    to read and write. Requests fail if they include an invalid write
    operation.
 
-4. **Returns an HTTPS response to the caller.** The response includes
+4. **Return an HTTPS response to the caller.** The response includes
    the result of a generated endpoint operation or any data that you
    return from a custom endpoint. In the request, you can choose to receive the
    response in either :ref:`JSON or EJSON format
    <data-api-data-formats>`.
 
-When to Use the Data API
-------------------------
+When to Use Generated Endpoints
+-------------------------------
 
 For server applications, and especially for high-load and latency
 sensitive use-cases, we recommend connecting directly to Atlas with a
-MongoDB driver. Operations called through a Data API endpoint take
+MongoDB driver. Operations called through a generated endpoint take
 longer to complete than the corresponding MongoDB operations called
 through a driver. Additionally, the drivers provide more flexibility and
 control over how your operations are executed. To learn more, visit the
@@ -151,8 +151,8 @@ We recommend using the Data API when:
 
 Constraints
 -----------
-The following constraints apply to Data API requests and responses: 
+The following constraints apply to generated endpoint requests and responses: 
 
 - Requests will time out after 300 seconds of runtime.
 
-- Data API response payloads are limited to 350 MB in size.
+- Endpoint response payloads are limited to 350 MB in size.

@@ -1,3 +1,54 @@
+# June 21, 2024
+
+## Other
+
+- Throughout docs
+  - Typo fixes: Change "the the" to "the" on several pages.
+  - Add meta information for internal search improvements to pages with the typo fixes.
+  - Replace images on the App Services, Device Sync, and Edge Server landing pages with images that are more compatible with upcoming dark mode support.
+
+# June 14, 2024
+
+## Device Sync
+
+- Configure and Update Your Data Model/Data Model Mapping: Update note for `Mixed Properties` to specify the Collections in Mixed feature is only valid for App Services Apps created after `May 28, 2024`.
+- Define a Data Model/Schemas/Schema Data Types: Update note for `Mixed` data type to specify the Collections in Mixed feature is only valid for App Services Apps created after `May 28, 2024`.
+
+## Triggers
+
+- Database Triggers: Fix typos and a formatting issue.
+
+## Authenticate & Manage Users
+
+- Authentication Providers/Custom JWT: Add note about escaping a period for the `path` metadata field and update link to Server documentation on dot notation.
+
+## Release Notes
+
+- Update external changelog with release notes for the updated Function Editor, Collections in Mixed, and more.
+
+# June 7, 2024
+
+## Device Sync
+
+- Configure and Update Your Data Model
+  - Create a Data Model: Updates for readability and clarity.
+  - Data Model Mapping:
+    - Add new "Mixed Properties" section.
+    - Update "Example" section to demonstrate nested collections of mixed data.
+    - Update "Geospatial" section with content moved from Schema Types page.
+- Technical Details
+  - Conflict Resolution: 
+    - Add new "Dictionaries" section to clarify how Device Sync handles conflicts with dictionary keys.
+    - Add new "Nested Collections" section.
+
+## Define a Data Model
+
+- Schemas/Enforce a Schema: Update page title to "Define & Enforce a Schema".
+- Schemas/Schema Types:
+  - Update "Mixed" data type section to reflect new support for arrays and dictionaries in Apps created after May 22, 2024.
+  - Add new "Counter" section to "Realm Database Types" to document counter data types and specify which SDKs support them.
+  - Move Device Sync-specific geospatial query content to Data Model Mapping page.
+
 # May 31, 2024
 
 ## Release Notes

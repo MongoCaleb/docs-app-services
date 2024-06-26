@@ -30,14 +30,14 @@ Atlas HTTP Endpoints
 .. contents:: On this page
    :depth: 2
 
-The Data API is a managed service that lets you securely work with data
+The Atlas HTTPS API is a managed service that lets you securely work with data
 stored in Atlas using standard HTTPS requests. The Data API is not a
 direct connection to your database. Instead, the API is a fully-managed
 middleware service that sits between your cluster and the clients that
 send requests.
 
-You can use the Data API to connect to MongoDB Atlas from any platform
-that supports HTTPS, including:
+You can use HTTPS endpoints to connect to MongoDB Atlas from any platform that 
+supports HTTPS, including:
 
 - Web browsers
 - Web servers
@@ -63,7 +63,7 @@ like the following:
 Endpoints
 ---------
 
-The Data API supports two types of endpoints:
+The Atlas HTTP Endpoints support two types of endpoints:
 
 - **Generated Endpoints** are automatically-generated templates that represent 
   MongoDB operations. You can use these endpoints to create,
@@ -82,7 +82,7 @@ The Data API supports two types of endpoints:
   To learn more, including how to create and call endpoints, see
   :ref:`Custom HTTPS Endpoints <custom-endpoints>`.
 
-How the Data API Works
+How the Endpoints Work
 ----------------------
 
 Requests to generated endpoints may resemble traditional database operations, like
@@ -129,7 +129,7 @@ through a driver. Additionally, the drivers provide more flexibility and
 control over how your operations are executed. To learn more, visit the
 :driver:`MongoDB Drivers </>` documentation.
 
-We recommend using the Data API when:
+We recommend using the generated endpoints when:
 
 - You want to run MongoDB operations from a web application or other
   client that you can't trust.

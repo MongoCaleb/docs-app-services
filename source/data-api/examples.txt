@@ -29,6 +29,8 @@ body uses EJSON, set the ``Accept`` and ``Content-Type`` headers to
    Accept: application/ejson
    Content-Type: application/ejson
 
+JSON, Canonical EJSON, and Relaxed EJSON
+----------------------------------------
 .. _data-format-json:
 
 Standard JSON (application/json)
@@ -84,10 +86,10 @@ a two-character hexadecimal string:
           .. code-block:: json
 
              {
-               "$binary": {
-                  "base64": "e67803a39588be8a95731a21e27d7391",
-                  "subType": "05"
-               }
+                 "$binary": {
+                    "base64": "e67803a39588be8a95731a21e27d7391",
+                    "subType": "05"
+                 }
              } 
 
        .. tab:: Relaxed EJSON
@@ -96,10 +98,10 @@ a two-character hexadecimal string:
           .. code-block:: json
 
              {
-               "$binary": {
-                  "base64": "e67803a39588be8a95731a21e27d7391",
-                  "subType": "05"
-               }
+                "$binary": {
+                   "base64": "e67803a39588be8a95731a21e27d7391",
+                   "subType": "05"
+                }
              }
 
        .. tab:: JSON
@@ -108,15 +110,13 @@ a two-character hexadecimal string:
           .. code-block:: json
 
              {
-               "Subtype": 5,
-               "Data": "e67803a39588be8a95731a21e27d7391"
+                "Subtype": 5,
+                "Data": "e67803a39588be8a95731a21e27d7391"
              }
 
 
 Date
 ~~~~
-
-To specify a date, use a ``$date`` object.
 
 .. tabs::
 
@@ -126,9 +126,9 @@ To specify a date, use a ``$date`` object.
           .. code-block:: json
 
              {
-               "$date": {
-                  "$numberLong": "1641954803067"
-               }
+                "$date": {
+                   "$numberLong": "1641954803067"
+                }
              } 
 
        .. tab:: Relaxed EJSON
@@ -137,7 +137,7 @@ To specify a date, use a ``$date`` object.
           .. code-block:: json
 
              {
-               "$date": "2022-01-12T02:33:23.067Z"
+                "$date": "2022-01-12T02:33:23.067Z"
              }
       
        .. tab:: JSON
@@ -146,81 +146,217 @@ To specify a date, use a ``$date`` object.
           .. code-block:: json
 
              {
-               "2022-01-12T02:33:23.067Z"
+                "2022-01-12T02:33:23.067Z"
              }
 
 
-
-
 Decimal128
-----------
+~~~~~~~~~~
 
-To specify a 128-bit decimal, use ``$numberDecimal`` with the decimal
-value as a string:
+.. tabs::
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Decimal128.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
+
+          .. code-block:: json
+
+             { "$numberDecimal": "9823.1297" }
+
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             { "$numberDecimal": "9823.1297" }
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             "9823.1297"
 
 Double
-------
+~~~~~~
 
-Canonical EJSON
-~~~~~~~~~~~~~~~
-To specify a 64-bit signed floating point value (commonly referred to as
-a "double"), use a canonical ``$numberDouble`` with the integer value as
-a string:
+.. tabs::
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Double-Canonical.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
 
-Relaxed EJSON
-~~~~~~~~~~~~~
+          .. code-block:: json
 
-An EJSON value that contains a raw JSON ``number`` with a decimal point
-is automatically cast to a ``$numberDouble`` object:
+             { "$numberDouble": "10.5" }
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Double-Relaxed.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             10.5
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             10.5
+
 
 Int32
 -----
 
-To specify a 32-bit signed integer value, use a canonical ``$numberInt``
-object with the integer value as a string:
+.. tabs::
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Int32-Canonical.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
 
-Relaxed EJSON
-~~~~~~~~~~~~~
+          .. code-block:: json
 
-An EJSON value that contains a raw JSON ``number`` without a decimal
-point is automatically cast to a ``$numberInt`` object:
+             { "$numberInt": "10" }
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Int32-Relaxed.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             10
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             10
+
 
 Int64
------
+~~~~~
 
-To specify a 64-bit signed integer value, use ``$numberLong`` with the
-integer value as a string:
+.. tabs::
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Int64.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
+
+          .. code-block:: json
+
+             { "$numberLong: "10000" }
+
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             10000
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             10000
+
 
 ObjectId
---------
+~~~~~~~~
 
-To specify an ObjectId value, use ``$oid`` with the ID as a byte string:
+.. tabs::
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.ObjectId.sh
-   :language: bash
-   :emphasize-lines: 11
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
 
+          .. code-block:: json
+
+             { "$oid":"5d505646cf6d4fe581014ab2" }
+
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             { "$oid":"5d505646cf6d4fe581014ab2" }
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+            "5d505646cf6d4fe581014ab2"
+
+Regular Expression
+~~~~~~~~~~~~~~~~~~
+
+.. tabs::
+
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
+
+          .. code-block:: json
+
+             {
+                "$regularExpression": {
+                "pattern":"^H",
+                "options":"i"
+               }
+             }
+
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             {
+                "$regularExpression": {
+                "pattern":"^H",
+                "options":"i"
+               }
+             }
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             {
+                "Pattern": "^H",
+                "Options": "i"
+             }
+
+Timestamp
+~~~~~~~~~
+
+.. tabs::
+
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
+
+          .. code-block:: json
+
+             {
+                "$timestamp": {
+                "t":1565545664,
+                "i":1
+               }
+             }
+
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             {
+                "$timestamp": {
+                "t":1565545664,
+                "i":1
+               }
+             }
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             {
+                "T": 1565545664,
+                "I": 1
+             }

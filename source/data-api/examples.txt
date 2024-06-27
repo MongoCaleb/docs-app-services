@@ -1,3 +1,5 @@
+.. _data-api-data-formats:
+
 =========================
 Using BSON and EJSON Data
 =========================
@@ -8,59 +10,147 @@ Using BSON and EJSON Data
    :depth: 2
    :class: singlecol
 
+MongoDB stores data in a format called `BSON <https://bsonspec.org/>`__,
+which is similar to a JSON object in structure but supports additional data types 
+and uses a binary encoding. BSON is efficient for computers but is not human 
+readable, so you can't work with it directly.
 
-Endpoint requests can specify BSON types that don't exist in JSON by
-instead using the EJSON :ref:`data format <data-api-data-formats>` in
-the request body. You can use EJSON to match BSON types in query filters
-or write BSON types in insert and update operations.
+Rather than using BSON, the generated endpoints use two formats to represent data 
+in requests and responses: JSON and EJSON. For BSON types that don't exist in JSON, 
+use the EJSON :ref:`data format <data-api-data-formats>` in the request body.
 
-To specify that a request body uses EJSON, set the ``Content-Type`` header:
+You define a single default return type for all generated endpoints and 
+individually for each custom endpoint. For example, to specify that a request 
+body uses EJSON, set the ``Accept`` and ``Content-Type`` headers to 
+``application/ejson``:
 
 .. code-block:: none
    
+   Accept: application/ejson
    Content-Type: application/ejson
 
-.. note::
+.. _data-format-json:
 
-   For detailed examples of all available endpoints, see the 
-   :ref:`Generated Endpoints OpenAPI Reference <data-api-v1>`.
+Standard JSON (application/json)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **JSON** format uses standard types that any tool can parse 
+and understand. However, JSON cannot represent all BSON types so JSON
+responses may lose type information for some fields. For example, BSON
+has distinct types for 32-bit integers and 64-bit floats but a JSON
+response represents both as a ``number``.
+
+.. _data-format-ejson:
+
+Canonical & Relaxed EJSON (application/ejson)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :manual:`MongoDB Extended JSON format </reference/mongodb-extended-json/>` 
+is a superset of standard JSON that uses structured fields to represent BSON data 
+that don't have corresponding JSON types. This fully represents your data but 
+requires your client to understand how to work with EJSON.
+
+There are two variants of EJSON:
+
+- **Canonical EJSON** uses a verbose structure that emphasizes type
+  preservation at the expense of readability and interoperability. It
+  fully represents BSON types but you may need to use a library or
+  custom code to work with it.
+
+- **Relaxed EJSON** uses a more compact structure that is easier to read
+  and work with but may lose type information for some BSON types. For
+  example, a number field in an inserted document may be inferred as a
+  different numeric BSON type than you expect.
+
+You can use either Canonical or Relaxed EJSON in request bodies. Data
+API endpoints that are configured to return EJSON always return
+Canonical EJSON.
+
+Expressing Data Types in JSON and EJSON
+---------------------------------------
 
 Binary
-------
+~~~~~~
 
-To specify a binary value, use ``$binary`` with the value encoded in
+To specify a binary value in EJSON, use ``$binary`` with the value encoded in
 Base64 and a `BSON subtype <https://bsonspec.org/spec.html>`_ encoded as
 a two-character hexadecimal string:
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Binary.sh
-   :language: bash
-   :emphasize-lines: 11-16
+.. tabs::
+
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
+
+          .. code-block:: json
+
+             {
+               "$binary": {
+                  "base64": "e67803a39588be8a95731a21e27d7391",
+                  "subType": "05"
+               }
+             } 
+
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
+
+          .. code-block:: json
+
+             {
+               "$binary": {
+                  "base64": "e67803a39588be8a95731a21e27d7391",
+                  "subType": "05"
+               }
+             }
+
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             {
+               "Subtype": 5,
+               "Data": "e67803a39588be8a95731a21e27d7391"
+             }
+
 
 Date
-----
+~~~~
 
-To specify a date, use a ``$date`` object. The value depends on which
-EJSON format you want to use.
+To specify a date, use a ``$date`` object.
 
-Canonical EJSON
-~~~~~~~~~~~~~~~
+.. tabs::
 
-The value is a `UNIX timestamp in milliseconds
-<https://currentmillis.com/>`_ as a 64-bit integer:
+       .. tab:: Canonical EJSON
+          :tabid: can_ejson
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Date-Canonical.sh
-   :language: bash
-   :emphasize-lines: 11
+          .. code-block:: json
 
-Relaxed EJSON
-~~~~~~~~~~~~~
+             {
+               "$date": {
+                  "$numberLong": "1641954803067"
+               }
+             } 
 
-The value is an :wikipedia:`ISO 8601 <ISO_8601>` date string with a time
-component:
+       .. tab:: Relaxed EJSON
+          :tabid: rel_ejson
 
-.. literalinclude:: /data-api/snippets/data-types.snippet.Date-Relaxed.sh
-   :language: bash
-   :emphasize-lines: 11
+          .. code-block:: json
+
+             {
+               "$date": "2022-01-12T02:33:23.067Z"
+             }
+      
+       .. tab:: JSON
+          :tabid: json
+
+          .. code-block:: json
+
+             {
+               "2022-01-12T02:33:23.067Z"
+             }
+
+
+
 
 Decimal128
 ----------

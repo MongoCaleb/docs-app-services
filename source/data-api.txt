@@ -24,7 +24,6 @@ Atlas HTTP Endpoints
    Custom HTTPS Endpoints </data-api/custom-endpoints>
    Authenticate Endpoint Requests </data-api/authenticate>
    Using BSON and EJSON Data </data-api/examples>
-   Data Formats </data-api/data-formats>
    Generated Endpoints Reference </data-api/openapi>
 
 .. contents:: On this page

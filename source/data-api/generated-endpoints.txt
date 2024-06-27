@@ -18,6 +18,7 @@ requests. The generated endpoints are pre-defined endpoints that represent
 MongoDB operations. You can use them to create, read, update, delete, and 
 aggregate documents in a MongoDB data source.
 
+
 For example, this :mdn:`POST <Web/HTTP/Methods/POST>` request stores a
 document in a linked cluster by calling the ``insertOne`` endpoint:
 
@@ -32,7 +33,7 @@ document in a linked cluster by calling the ``insertOne`` endpoint:
       { "insertedId": "5f1a785e1536b6e6992fd588" }
 
 For a detailed API reference of all available endpoints, see the
-:ref:`Generated Endpoints OpenAPI Reference <data-api-v1>`.
+:ref:`Generated Endpoints Reference <data-api-v1>`.
 
 When to Use the Generated Endpoints
 -----------------------------------
@@ -397,7 +398,7 @@ HTTP/1.1 or greater is required when making requests.
 .. note::
 
    For detailed examples of all available endpoints, see the 
-   :ref:`Generated Endpoints OpenAPI Reference <data-api-v1>`.
+   :ref:`Generated Endpoints Reference <data-api-v1>`.
 
 
 Choose an API Version

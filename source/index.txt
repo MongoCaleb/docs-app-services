@@ -97,29 +97,30 @@ run virtually any app or backend service on top of Atlas.
       .. image:: /images/plp/device-sync-2.png
          :alt: Atlas Device Sync Illustration
 
-   .. tab:: Access Data With a REST API
+   .. tab:: Access Data With HTTPS Endpoints
       :tabid: data-api
 
       .. procedure::
 
-         .. step:: Enable the Data API CRUD & Aggregation Endpoints
+         .. step:: Define Custom HTTPS Endpoints
 
-            The MongoDB Atlas Data API lets you read and write data in
-            Atlas using HTTPS requests. Once enabled, you can use a
-            built-in endpoint to work with data.
-
-            See :ref:`Data API Endpoints <data-api-endpoints>`.
-         
-         .. step:: Define Custom Endpoints
-
-            You can tailor your API with custom endpoints for your
-            application. Each endpoint handles incoming HTTPS requests
+            You can access your data over HTTPS by building custom endpoints for 
+            your application. Each endpoint handles incoming HTTPS requests
             for a specific route and returns configurable HTTPS
             responses.
 
             See :ref:`Custom Endpoints <custom-endpoints>`.
 
-         .. step:: Secure Your API
+         .. step:: Use Generated Endpoints
+
+            The MongoDB Atlas generated endpoints provide pre-defined endpoints 
+            that you can use as-is, or as a template for building your custom 
+            endpoints. You can use the generated endpoints to create, read, 
+            update, delete, and aggregate documents in a MongoDB data source.
+
+            See :ref:`Generated Endpoints <generated-endpoints>`.
+
+         .. step:: Secure Your Endpoints
             
             Generate an API key that you can use to authenticate
             requests. Alternatively, you can use other authentication
@@ -127,7 +128,7 @@ run virtually any app or backend service on top of Atlas.
             
             For details, see :ref:`Data API Authentication <data-api-authentication>`.
 
-         .. step:: Send a Data API Request
+         .. step:: Send an HTTPS Endpoint Request
 
             Send requests from any server-side environment that supports
             HTTPS.

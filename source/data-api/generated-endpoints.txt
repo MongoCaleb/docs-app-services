@@ -12,10 +12,10 @@ Data API Endpoints
    :depth: 2
    :class: singlecol
 
-The Data API lets you securely read and write data using standard HTTPS
-requests. The API includes automatically generated endpoints that each
-represent a MongoDB operation. You can use the endpoints to create,
-read, update, delete, and aggregate documents in a MongoDB data source.
+Generated endpoints let you securely read and write data using standard HTTPS
+requests. The generated endpoints are pre-defined endpoints that represent 
+MongoDB operations. You can use them to create, read, update, delete, and 
+aggregate documents in a MongoDB data source.
 
 For example, this :mdn:`POST <Web/HTTP/Methods/POST>` request stores a
 document in a linked cluster by calling the ``insertOne`` endpoint:

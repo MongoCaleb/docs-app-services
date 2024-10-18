@@ -1,11 +1,11 @@
 .. meta::
-   :robots: noindex, nosnippet
+   :robots: nosnippet
 
 .. _data-api-endpoints:
 
-==================
-Data API Endpoints
-==================
+===============================
+Data API Endpoints [Deprecated]
+===============================
 
 .. default-domain:: mongodb
 
@@ -45,8 +45,6 @@ When to Use the Data API
 
 You can use the Data API to integrate with any app or service that
 supports HTTPS requests. For example, you might:
-
-- call the API from a serverless edge function
 
 - query Atlas from a mobile application
 
